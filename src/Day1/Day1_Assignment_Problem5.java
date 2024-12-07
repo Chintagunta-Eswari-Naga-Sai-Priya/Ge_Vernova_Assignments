@@ -1,3 +1,5 @@
+package Day1;
+
 import java.util.Scanner;
 public class Day1_Assignment_Problem5 {
     public static void main(String[] args) {

@@ -1,4 +1,5 @@
 package Day2;// LineComparison.java
+// LineComparison.java
 public class LineComparison {
     private double length;
 
@@ -29,6 +30,9 @@ public class LineComparison {
         } else {
             System.out.println("Lines are not equal.");
         }
+
+        // Comparing two lengths
+        compareLines(line1, line2);
     }
 
     public static double calculateLength(double x1, double y1, double x2, double y2) {
@@ -42,7 +46,14 @@ public class LineComparison {
         LineComparison other = (LineComparison) obj;
         return Double.compare(length, other.length) == 0;
     }
+
+    public static void compareLines(LineComparison line1, LineComparison line2) {
+        if (line1.getLength() == line2.getLength()) {
+            System.out.println("Both lines are equal.");
+        } else if (line1.getLength() > line2.getLength()) {
+            System.out.println("Line 1 is greater than Line 2.");
+        } else {
+            System.out.println("Line 1 is less than Line 2.");
+        }
+    }
 }
-
-
-

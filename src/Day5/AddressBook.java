@@ -34,4 +34,8 @@ public class AddressBook {
         }
         System.out.println("Contact not found!");
     }
+    public void deleteContact(String name) {
+        contacts.removeIf(contact -> contact.getFirstName().equalsIgnoreCase(name));
+        System.out.println("Contact Deleted!");
+    }
 }

@@ -1,4 +1,4 @@
-package day4; // Package names should be in lowercase
+package Day4; // Package names should be in lowercase
 
 import java.util.Scanner;
 

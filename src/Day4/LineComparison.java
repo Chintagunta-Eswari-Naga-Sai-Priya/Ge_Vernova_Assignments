@@ -1,56 +1,70 @@
-package Day4; // package names should be in lower case
+package day4; // Package names should be in lowercase
 
 import java.util.Scanner;
 
-class Line implements Comparable<Line> { // Implement Comparable<Line>
-    private double x1, y1, x2, y2;
+class Point {
+    private double x, y;
 
-    public Line(double x1, double y1, double x2, double y2) {
-        this.x1 = x1;
-        this.y1 = y1;
-        this.x2 = x2;
-        this.y2 = y2;
+    public Point(double x, double y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    public double getX() {
+        return x;
+    }
+
+    public double getY() {
+        return y;
+    }
+}
+
+class Line implements Comparable<Line> {
+    private Point startPoint, endPoint;
+
+    public Line(Point startPoint, Point endPoint) {
+        this.startPoint = startPoint;
+        this.endPoint = endPoint;
     }
 
     public double length() {
-        return Math.sqrt(Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2));
+        return Math.sqrt(Math.pow((endPoint.getX() - startPoint.getX()), 2) +
+                Math.pow((endPoint.getY() - startPoint.getY()), 2));
     }
 
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
-        Line line = (Line) obj;
-        return (x1 == line.x1 && y1 == line.y1 && x2 == line.x2 && y2 == line.y2);
+        Line otherLine = (Line) obj;
+        return Double.compare(this.length(), otherLine.length()) == 0;
     }
 
     @Override
-    public int compareTo(Line other) { // Corrected instance method
+    public int compareTo(Line other) {
         return Double.compare(this.length(), other.length());
     }
 }
 
-public class LineComparison { // Class names should be in PascalCase
+public class LineComparison {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
         // Get coordinates for Line 1
         System.out.println("Enter coordinates for Line 1 (x1, y1, x2, y2): ");
-        double x1_1 = scanner.nextDouble();
-        double y1_1 = scanner.nextDouble();
-        double x2_1 = scanner.nextDouble();
-        double y2_1 = scanner.nextDouble();
-        Line line1 = new Line(x1_1, y1_1, x2_1, y2_1);
+        Point startPoint1 = new Point(scanner.nextDouble(), scanner.nextDouble());
+        Point endPoint1 = new Point(scanner.nextDouble(), scanner.nextDouble());
+        Line line1 = new Line(startPoint1, endPoint1);
 
         // Get coordinates for Line 2
         System.out.println("Enter coordinates for Line 2 (x1, y1, x2, y2): ");
-        double x1_2 = scanner.nextDouble();
-        double y1_2 = scanner.nextDouble();
-        double x2_2 = scanner.nextDouble();
-        double y2_2 = scanner.nextDouble();
-        Line line2 = new Line(x1_2, y1_2, x2_2, y2_2);
-        System.out.println("Length of the Line: " + line2.length());
+        Point startPoint2 = new Point(scanner.nextDouble(), scanner.nextDouble());
+        Point endPoint2 = new Point(scanner.nextDouble(), scanner.nextDouble());
+        Line line2 = new Line(startPoint2, endPoint2);
 
+        // Display lengths
+        System.out.println("Length of Line 1: " + line1.length());
+        System.out.println("Length of Line 2: " + line2.length());
 
         // Check equality
         if (line1.equals(line2)) {
@@ -60,7 +74,7 @@ public class LineComparison { // Class names should be in PascalCase
         }
 
         // Compare lengths
-        int comparison = line1.compareTo(line2); // Corrected to call on instance
+        int comparison = line1.compareTo(line2);
         if (comparison == 0) {
             System.out.println("Line 1 is equal to Line 2 based on length.");
         } else if (comparison > 0) {
@@ -72,4 +86,3 @@ public class LineComparison { // Class names should be in PascalCase
         scanner.close();
     }
 }
-

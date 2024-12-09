@@ -1,5 +1,7 @@
 // AddressBookMain.java
-package Day5;
+package Day6;
+import Day6.Contact;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 

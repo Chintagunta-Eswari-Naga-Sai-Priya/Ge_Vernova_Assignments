@@ -24,16 +24,30 @@ public class EmployeeWageComputation {
         System.out.println("Result: " + company);
         System.out.println();
     }
+    private CompanyEmpWage[] companies;
+    private int numberOfCompanies;
+
+    public EmployeeWageComputation() {
+        companies = new CompanyEmpWage[5]; // Max 5 companies
+        numberOfCompanies = 0;
+    }
+
+    public void addCompany(CompanyEmpWage company) {
+        companies[numberOfCompanies++] = company;
+    }
 
     public static void main(String[] args) {
         EmployeeWageComputation empWageComputation = new EmployeeWageComputation();
 
-        CompanyEmpWage companyA = new CompanyEmpWage("Company A", 20, 8, 20, 100);
-        CompanyEmpWage companyB = new CompanyEmpWage("Company B", 25, 8, 22, 120);
-        CompanyEmpWage companyC = new CompanyEmpWage("Company C", 30, 6, 18, 90);
+        empWageComputation.addCompany(new CompanyEmpWage("Company A", 20, 8, 20, 100));
+        empWageComputation.addCompany(new CompanyEmpWage("Company B", 25, 8, 22, 120));
+        empWageComputation.addCompany(new CompanyEmpWage("Company C", 30, 6, 18, 90));
 
-        empWageComputation.computeEmployeeWage(companyA);
-        empWageComputation.computeEmployeeWage(companyB);
-        empWageComputation.computeEmployeeWage(companyC);
+        for (int i = 0; i < empWageComputation.numberOfCompanies; i++) {
+            empWageComputation.computeEmployeeWage(empWageComputation.companies[i]);
+        }
     }
+
+
+
 }

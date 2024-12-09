@@ -3,7 +3,7 @@ package Day5;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class AddressBookgit {
+public class AddressBook {
     private static ArrayList<Contact> contacts = new ArrayList<>();
 
     public static void main(String[] args) {

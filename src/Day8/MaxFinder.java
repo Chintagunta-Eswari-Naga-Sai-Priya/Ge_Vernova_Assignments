@@ -1,6 +1,4 @@
 package Day8;
-
-// src/MaxFinder.java
 import java.util.Arrays;
 
 public class MaxFinder<T extends Comparable<T>> {
@@ -13,5 +11,9 @@ public class MaxFinder<T extends Comparable<T>> {
 
     public T testMaximum() {
         return Arrays.stream(values).max(T::compareTo).orElse(null);
+    }
+
+    public void printMax() {
+        System.out.println("Maximum value: " + testMaximum());
     }
 }

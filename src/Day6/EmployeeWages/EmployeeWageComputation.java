@@ -1,19 +1,16 @@
-// EmployeeWageComputation.java
 package Day6.EmployeeWages;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 
 public class EmployeeWageComputation {
-    private ArrayList<CompanyEmpWage> companyWageList = new ArrayList<>();
+    private HashMap<String, Integer> companyWageMap = new HashMap<>();
 
     public void addCompany(String companyName, int wagePerHour, int fullDayHour, int maxWorkingDays, int maxWorkingHours) {
         int totalWage = computeEmployeeWage(companyName, wagePerHour, fullDayHour, maxWorkingDays, maxWorkingHours);
-        companyWageList.add(new CompanyEmpWage(companyName, totalWage));
+        companyWageMap.put(companyName, totalWage);
     }
 
-    public void displayAllCompanyWages() {
-        for (CompanyEmpWage company : companyWageList) {
-            System.out.println(company);
-        }
+    public int getTotalWageByCompany(String companyName) {
+        return companyWageMap.getOrDefault(companyName, 0);
     }
 }

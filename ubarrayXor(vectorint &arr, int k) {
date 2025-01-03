@@ -1,0 +1,174 @@
+[33mcommit 3131b93c25098ae97c94aafa2db3e1026febd72f[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mUC11[m[33m, [m[1;31morigin/master[m[33m, [m[1;32mmaster[m[33m, [m[1;32mUC10[m[33m)[m
+Author: Chintagunta_Eswari_Naga_Sai_Priya <priyachintagunta3@gmail.com>
+Date:   Mon Dec 9 16:17:30 2024 +0530
+
+    UC10: Manage Employee Wage of multiple companies
+
+[33mcommit 8d6bb31cdfb9558d22525f0a1682a6e9e483482a[m[33m ([m[1;32mUC9[m[33m)[m
+Author: Chintagunta_Eswari_Naga_Sai_Priya <priyachintagunta3@gmail.com>
+Date:   Mon Dec 9 16:13:37 2024 +0530
+
+    UC9: Save the total wage for each company
+
+[33mcommit d975ad27bc1779c4248db1b2a3220452d72e70b6[m[33m ([m[1;32mUC6[m[33m)[m
+Author: Chintagunta_Eswari_Naga_Sai_Priya <priyachintagunta3@gmail.com>
+Date:   Mon Dec 9 15:30:28 2024 +0530
+
+    Implement UC6: Manage multiple contacts in AddressBook
+
+[33mcommit 4989db087101fec29050e16f58bffa11babcb4ab[m
+Merge: ec43e44 fd61610
+Author: Chintagunta_Eswari_Naga_Sai_Priya <priyachintagunta3@gmail.com>
+Date:   Mon Dec 9 15:28:07 2024 +0530
+
+    Initial commit
+
+[33mcommit ec43e4470edfa4b6c82b2c7a66cd429dc663b0e8[m
+Author: Chintagunta_Eswari_Naga_Sai_Priya <priyachintagunta3@gmail.com>
+Date:   Mon Dec 9 15:22:20 2024 +0530
+
+    Implement UC5: Support for multiple address books
+
+[33mcommit fd616101cefc5556ab23c86b6ddf81ca729f767f[m[33m ([m[1;32mUC5[m[33m)[m
+Author: Chintagunta_Eswari_Naga_Sai_Priya <priyachintagunta3@gmail.com>
+Date:   Mon Dec 9 15:21:19 2024 +0530
+
+    Implement UC5: Support for multiple address books
+
+[33mcommit 0cec938d7a7c5f75c62e799b9c0f88e031264639[m
+Author: Chintagunta_Eswari_Naga_Sai_Priya <priyachintagunta3@gmail.com>
+Date:   Sun Dec 8 21:23:49 2024 +0530
+
+    Class definitions are added in a separate class
+
+[33mcommit 136ace033580c155237c2eef5eecc2b3c150c609[m[33m ([m[1;32mUC3[m[33m)[m
+Author: Chintagunta_Eswari_Naga_Sai_Priya <priyachintagunta3@gmail.com>
+Date:   Sun Dec 8 18:39:24 2024 +0530
+
+    UC 3: Added functionality to delete a contact
+
+[33mcommit 740782f6cde95b3c2b88d604bc99d06dc017bb60[m[33m ([m[1;32mUC2[m[33m)[m
+Author: Chintagunta_Eswari_Naga_Sai_Priya <priyachintagunta3@gmail.com>
+Date:   Sun Dec 8 18:38:17 2024 +0530
+
+    UC 2: Added functionality to edit an existing contact
+
+[33mcommit ab60a0ec1dcfce431e39cc69124b941ec11b4df2[m
+Author: Chintagunta_Eswari_Naga_Sai_Priya <priyachintagunta3@gmail.com>
+Date:   Sun Dec 8 18:34:19 2024 +0530
+
+    UC1 added
+
+[33mcommit d88c51fa9ae379eeabb3f84c8aaa76135b330ab3[m[33m ([m[1;32mUC1[m[33m)[m
+Author: Chintagunta_Eswari_Naga_Sai_Priya <priyachintagunta3@gmail.com>
+Date:   Sun Dec 8 18:32:56 2024 +0530
+
+    UC 1: Added functionality to add a new contact using console
+
+[33mcommit 96cd8d9d24fae37e3db0ab478d6d9b848f5de150[m
+Author: Chintagunta_Eswari_Naga_Sai_Priya <priyachintagunta3@gmail.com>
+Date:   Sun Dec 8 18:26:06 2024 +0530
+
+    Initial commit: Added Welcome message in AddressBookMain class
+
+[33mcommit 8b1e526e6e4bec864bd0bbf0f22f56e1e986ed52[m[33m ([m[1;32mUC8[m[33m)[m
+Author: Chintagunta_Eswari_Naga_Sai_Priya <priyachintagunta3@gmail.com>
+Date:   Sun Dec 8 18:15:33 2024 +0530
+
+    UC8 added
+
+[33mcommit 23a094213c09f1b32b207a02c99a01debaa007e2[m[33m ([m[1;32mUC4[m[33m)[m
+Author: Chintagunta_Eswari_Naga_Sai_Priya <priyachintagunta3@gmail.com>
+Date:   Sun Dec 8 18:08:00 2024 +0530
+
+    UC4 branch added
+
+[33mcommit d2d2dbb942bcd66f03bfbcecf0bc00c457db08cc[m
+Author: Chintagunta_Eswari_Naga_Sai_Priya <priyachintagunta3@gmail.com>
+Date:   Sun Dec 8 18:01:27 2024 +0530
+
+    UC7 added
+
+[33mcommit 18226fdc959c0fe2e4947b29adf27bbe1c85e8a7[m
+Author: Chintagunta_Eswari_Naga_Sai_Priya <priyachintagunta3@gmail.com>
+Date:   Sun Dec 8 01:36:02 2024 +0530
+
+    final commit For Day3
+
+[33mcommit ddd46f23a2a20e66671472473be30aa476b8f42b[m
+Author: Chintagunta_Eswari_Naga_Sai_Priya <priyachintagunta3@gmail.com>
+Date:   Sat Dec 7 23:58:28 2024 +0530
+
+    generalised the code
+
+[33mcommit 22eb0ac0924504a2457c57388aba4495d698732c[m
+Author: Chintagunta_Eswari_Naga_Sai_Priya <priyachintagunta3@gmail.com>
+Date:   Sat Dec 7 23:20:32 2024 +0530
+
+    Line Comparison added
+
+[33mcommit 0cea753fc3718b919fa10ce8ec9792bf0cfac9f3[m
+Author: Chintagunta_Eswari_Naga_Sai_Priya <priyachintagunta3@gmail.com>
+Date:   Sat Dec 7 23:02:13 2024 +0530
+
+    Day 2 deleted
+
+[33mcommit 54303b853b5bc06a5f0d62e726e22b0410ed08a5[m
+Author: Chintagunta_Eswari_Naga_Sai_Priya <priyachintagunta3@gmail.com>
+Date:   Sat Dec 7 19:31:56 2024 +0530
+
+    Update Day2 submodule
+
+[33mcommit 5b100dd1567bb98f78d3a270b58bd884d1be33dd[m
+Author: Chintagunta_Eswari_Naga_Sai_Priya <priyachintagunta3@gmail.com>
+Date:   Sat Dec 7 19:10:46 2024 +0530
+
+    Moved LineComparison.java to src/Day2 directory
+
+[33mcommit 0c4da73109f77c2484a820e4ab953629269ada46[m
+Author: Chintagunta_Eswari_Naga_Sai_Priya <priyachintagunta3@gmail.com>
+Date:   Sat Dec 7 17:27:23 2024 +0530
+
+    UC 3: Added method to compare two lines
+
+[33mcommit 2fad81a1c966f72b6f159112067060e1a87ae4d8[m
+Author: Chintagunta_Eswari_Naga_Sai_Priya <priyachintagunta3@gmail.com>
+Date:   Sat Dec 7 17:25:26 2024 +0530
+
+    UC 2: Added method to check equality of two lines
+
+[33mcommit fe693ec31112544111f799f8703246e28c014c05[m
+Author: Chintagunta_Eswari_Naga_Sai_Priya <priyachintagunta3@gmail.com>
+Date:   Sat Dec 7 17:23:06 2024 +0530
+
+    UC 1: Added method to calculate length of the line
+
+[33mcommit ac26fc5fa359d830ae7a8ef307f42a6402a2a829[m
+Author: Chintagunta_Eswari_Naga_Sai_Priya <priyachintagunta3@gmail.com>
+Date:   Sat Dec 7 17:21:26 2024 +0530
+
+    Initial commit: Display welcome message
+
+[33mcommit 05c5ae2789038bb5c4a02957d42f443d63d855dd[m
+Author: Chintagunta_Eswari_Naga_Sai_Priya <priyachintagunta3@gmail.com>
+Date:   Sat Dec 7 18:55:50 2024 +0530
+
+    uncommitted changes
+
+[33mcommit 41ea064925b23f99fba21bb8c3ce6c1c54d09e9a[m
+Author: Chintagunta_Eswari_Naga_Sai_Priya <priyachintagunta3@gmail.com>
+Date:   Sat Dec 7 18:52:31 2024 +0530
+
+    uncommitted changes
+
+[33mcommit 2452c55d8682ec9e7ba5bee7468ffbbf1ccb9f6b[m
+Author: Chintagunta Eswari Naga Sai Priya <121191802+Chintagunta-Eswari-Naga-Sai-Priya@users.noreply.github.com>
+Date:   Sat Dec 7 16:34:17 2024 +0530
+
+    Delete Day2 directory
+
+[33mcommit a30a8030ea15b3fe0e752a459ec998f7bd2af697[m
+Author: Chintagunta_Eswari_Naga_Sai_Priya <priyachintagunta3@gmail.com>
+Date:   Fri Dec 6 00:48:59 2024 +0530
+
+    commit

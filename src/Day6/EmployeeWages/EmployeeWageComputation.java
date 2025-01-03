@@ -1,32 +1,19 @@
 // EmployeeWageComputation.java
 package Day6.EmployeeWages;
 
-public class CompanyEmpWage {
-    private String companyName;
-    private int totalWage;
-
-    public CompanyEmpWage(String companyName, int totalWage) {
-        this.companyName = companyName;
-        this.totalWage = totalWage;
-    }
-
-    @Override
-    public String toString() {
-        return "Company: " + companyName + ", Total Wage: " + totalWage;
-    }
-}
+import java.util.ArrayList;
 
 public class EmployeeWageComputation {
-    public int computeEmployeeWage(String companyName, int wagePerHour, int fullDayHour, int maxWorkingDays, int maxWorkingHours) {
-        int totalHours = 0, totalDays = 0;
+    private ArrayList<CompanyEmpWage> companyWageList = new ArrayList<>();
 
-        while (totalHours < maxWorkingHours && totalDays < maxWorkingDays) {
-            totalHours += fullDayHour;
-            totalDays++;
+    public void addCompany(String companyName, int wagePerHour, int fullDayHour, int maxWorkingDays, int maxWorkingHours) {
+        int totalWage = computeEmployeeWage(companyName, wagePerHour, fullDayHour, maxWorkingDays, maxWorkingHours);
+        companyWageList.add(new CompanyEmpWage(companyName, totalWage));
+    }
+
+    public void displayAllCompanyWages() {
+        for (CompanyEmpWage company : companyWageList) {
+            System.out.println(company);
         }
-
-        int totalWage = totalHours * wagePerHour;
-        System.out.println(new CompanyEmpWage(companyName, totalWage));
-        return totalWage;
     }
 }

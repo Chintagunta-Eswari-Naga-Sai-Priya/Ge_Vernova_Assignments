@@ -1,23 +1,17 @@
 package Day8;
 
 // src/MaxFinder.java
-public class MaxFinder<T extends Comparable<T>> {
-    private T a, b, c;
+import java.util.Arrays;
 
-    public MaxFinder(T a, T b, T c) {
-        this.a = a;
-        this.b = b;
-        this.c = c;
+public class MaxFinder<T extends Comparable<T>> {
+    private T[] values;
+
+    @SafeVarargs
+    public MaxFinder(T... values) {
+        this.values = values;
     }
 
     public T testMaximum() {
-        T max = a; // Assume a is the largest
-        if (b.compareTo(max) > 0) {
-            max = b; // b is larger
-        }
-        if (c.compareTo(max) > 0) {
-            max = c; // c is larger
-        }
-        return max;
+        return Arrays.stream(values).max(T::compareTo).orElse(null);
     }
 }

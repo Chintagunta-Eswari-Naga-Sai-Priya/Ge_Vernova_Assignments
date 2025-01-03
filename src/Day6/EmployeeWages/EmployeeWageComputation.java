@@ -1,7 +1,7 @@
 package Day6.EmployeeWages;
 
 import java.util.HashMap;
-
+import IEmployeeWage.java;
 public class EmployeeWageComputation {
     private HashMap<String, Integer> companyWageMap = new HashMap<>();
 

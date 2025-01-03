@@ -1,9 +1,11 @@
 package Day8;
 
 // src/TestMaxFinder.java
+public class TestMaxFinder // src/TestMaxFinder.java
 public class TestMaxFinder {
     public static void main(String[] args) {
         testIntegerMaximum();
+        testFloatMaximum();
     }
 
     public static void testIntegerMaximum() {
@@ -16,4 +18,16 @@ public class TestMaxFinder {
         System.out.println("Test Case 1.3: Max at 3rd Position");
         System.out.println("Max: " + MaxFinder.testMaximum(1, 4, 9)); // Max at 3rd position
     }
+
+    public static void testFloatMaximum() {
+        System.out.println("Test Case 2.1: Max at 1st Position");
+        System.out.println("Max: " + MaxFinder.testMaximum(5.5f, 3.3f, 2.2f)); // Max at 1st position
+
+        System.out.println("Test Case 2.2: Max at 2nd Position");
+        System.out.println("Max: " + MaxFinder.testMaximum(3.3f, 7.7f, 2.2f)); // Max at 2nd position
+
+        System.out.println("Test Case 2.3: Max at 3rd Position");
+        System.out.println("Max: " + MaxFinder.testMaximum(1.1f, 4.4f, 9.9f)); // Max at 3rd position
+    }
 }
+

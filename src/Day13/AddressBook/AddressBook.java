@@ -20,8 +20,9 @@ public class AddressBook {
             System.out.println("4. Search by City or State");
             System.out.println("5. Count Persons by City or State");
 // Modify switch cases accordingly.
+            System.out.println("\n6. Sort Entries Alphabetically");
 
-            System.out.println("6 Exit");
+            System.out.println(" 7Exit");
             System.out.print("Choose an option: ");
             int choice = scanner.nextInt();
             scanner.nextLine(); // Consume newline
@@ -32,7 +33,8 @@ public class AddressBook {
                 case 3 -> viewAllAddressBooks();
                 case 4 -> searchByLocation();
                 case 5 -> countPersonsByCityOrState();
-                case 6 -> exit = true;
+                case 6 -> sortEntriesAlphabetically();
+                case 7-> exit = true;
                 default -> System.out.println("Invalid option! Please try again.");
             }
         }
@@ -169,6 +171,15 @@ public class AddressBook {
         } else {
             System.out.println("Invalid choice.");
         }
+    }
+    private static void sortEntriesAlphabetically() {
+        addressBooks.forEach((bookName, contacts) -> {
+            System.out.println("\nAddress Book: " + bookName);
+            contacts.stream()
+                    .sorted(Comparator.comparing(Contact::getFirstName)
+                            .thenComparing(Contact::getLastName))
+                    .forEach(System.out::println);
+        });
     }
 
 

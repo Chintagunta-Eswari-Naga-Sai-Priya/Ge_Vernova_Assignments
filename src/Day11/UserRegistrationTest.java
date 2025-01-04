@@ -37,7 +37,7 @@ public class UserRegistrationTest {
         Assert.assertFalse(userRegistration.validateEmail("abc@.co.in"));
     }
     @Test
-<<<<<<< HEAD
+
     public void testPasswordRule1_Valid() {
         UserRegistration userRegistration = new UserRegistration();
         Assert.assertTrue(userRegistration.validatePasswordRule1("password123"));
@@ -58,6 +58,7 @@ public class UserRegistrationTest {
         UserRegistration userRegistration = new UserRegistration();
         Assert.assertFalse(userRegistration.validateMobileNumber("919919819801"));
     }
+
         @Test
         public void testPasswordRule2_Valid() {
             UserRegistration userRegistration = new UserRegistration();
@@ -69,6 +70,18 @@ public class UserRegistrationTest {
             UserRegistration userRegistration = new UserRegistration();
             Assert.assertFalse(userRegistration.validatePasswordRule2("password123"));
         }
+        @Test
+        public void testPasswordRule3_Valid() {
+            UserRegistration userRegistration = new UserRegistration();
+            Assert.assertTrue(userRegistration.validatePasswordRule3("Password1"));
+        }
+
+        @Test
+        public void testPasswordRule3_Invalid() {
+            UserRegistration userRegistration = new UserRegistration();
+            Assert.assertFalse(userRegistration.validatePasswordRule3("Password"));
+        }
+
 
 
 

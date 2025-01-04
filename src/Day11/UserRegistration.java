@@ -32,6 +32,11 @@ public class UserRegistration {
         String regex = "^(?=.*[A-Z]).{8,}$"; // At least 1 uppercase and 8 characters
         return Pattern.matches(regex, password);
     }
+    public boolean validatePasswordRule3(String password) {
+        String regex = "^(?=.*[0-9]).{8,}$"; // At least 1 numeric and 8 characters
+        return Pattern.matches(regex, password);
+    }
+
 
 
 

@@ -17,6 +17,11 @@ public class UserRegistration {
         String regex = "^[a-zA-Z0-9]+([._+-][a-zA-Z0-9]+)*@[a-zA-Z0-9-]+\\.[a-zA-Z]{2,}([.][a-zA-Z]{2,})?$";
         return Pattern.matches(regex, email);
     }
+    public boolean validatePasswordRule1(String password) {
+        String regex = "^.{8,}$"; // At least 8 characters
+        return Pattern.matches(regex, password);
+    }
+
 
 
 

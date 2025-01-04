@@ -36,6 +36,18 @@ public class UserRegistrationTest {
         UserRegistration userRegistration = new UserRegistration();
         Assert.assertFalse(userRegistration.validateEmail("abc@.co.in"));
     }
+    @Test
+    public void testPasswordRule1_Valid() {
+        UserRegistration userRegistration = new UserRegistration();
+        Assert.assertTrue(userRegistration.validatePasswordRule1("password123"));
+    }
+
+    @Test
+    public void testPasswordRule1_Invalid() {
+        UserRegistration userRegistration = new UserRegistration();
+        Assert.assertFalse(userRegistration.validatePasswordRule1("pass1"));
+    }
+
 
 
 }

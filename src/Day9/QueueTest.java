@@ -5,6 +5,9 @@ public class QueueTest {
         queue.enqueue(56);
         queue.enqueue(30);
         queue.enqueue(70);
-        queue.display(); // Output: 56 -> 30 -> 70 -> null
+        queue.display();
+
+        System.out.println("Dequeued element: " + queue.dequeue());
+        queue.display(); // Output: 30 -> 70 -> null
     }
 }

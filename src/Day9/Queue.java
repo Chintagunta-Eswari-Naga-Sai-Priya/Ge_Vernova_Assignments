@@ -7,6 +7,13 @@ public class Queue<T> {
         linkedList.add(data);
     }
 
+    public T dequeue() {
+        if (linkedList.isEmpty()) {
+            return null;
+        }
+        return linkedList.removeFirst();
+    }
+
     public void display() {
         linkedList.display();
     }

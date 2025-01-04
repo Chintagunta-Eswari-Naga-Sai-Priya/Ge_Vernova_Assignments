@@ -17,10 +17,22 @@ public class UserRegistration {
         String regex = "^[a-zA-Z0-9]+([._+-][a-zA-Z0-9]+)*@[a-zA-Z0-9-]+\\.[a-zA-Z]{2,}([.][a-zA-Z]{2,})?$";
         return Pattern.matches(regex, email);
     }
+
     public boolean validatePasswordRule1(String password) {
         String regex = "^.{8,}$"; // At least 8 characters
         return Pattern.matches(regex, password);
     }
+
+
+    public boolean validateMobileNumber(String mobileNumber) {
+        String regex = "^[0-9]{2} [0-9]{10}$";
+        return Pattern.matches(regex, mobileNumber);
+    }
+    public boolean validatePasswordRule2(String password) {
+        String regex = "^(?=.*[A-Z]).{8,}$"; // At least 1 uppercase and 8 characters
+        return Pattern.matches(regex, password);
+    }
+
 
 
 

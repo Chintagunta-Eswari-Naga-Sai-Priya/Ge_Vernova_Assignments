@@ -1,5 +1,4 @@
 package Day9;
-
 public class Stack<T> {
     private LinkedList<T> linkedList = new LinkedList<>();
 

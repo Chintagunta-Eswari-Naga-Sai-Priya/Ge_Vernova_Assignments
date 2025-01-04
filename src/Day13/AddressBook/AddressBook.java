@@ -68,9 +68,6 @@ public class AddressBook {
             System.out.println("\n1. Add Contact");
             System.out.println("2. View Contacts");
             System.out.println("3. Exit to Main Menu");
-            System.out.println("4. Search by City or State");
-// Modify switch cases accordingly.
-
             System.out.print("Choose an option: ");
             int choice = scanner.nextInt();
             scanner.nextLine(); // Consume newline
@@ -92,11 +89,11 @@ public class AddressBook {
         String lastName = scanner.nextLine();
 
         // Check for duplicates
-        boolean isDuplicate = contacts.stream()
-                .anyMatch(contact -> contact.getFirstName().equalsIgnoreCase(firstName) &&
-                        contact.getLastName().equalsIgnoreCase(lastName));
-        if (isDuplicate) {
-            System.out.println("Contact already exists!");
+        boolean duplicate = contacts.stream().anyMatch(contact ->
+                contact.getFirstName().equals(firstName) && contact.getLastName().equals(lastName)
+        );
+        if (duplicate) {
+            System.out.println("Duplicate contact found. Contact not added.");
             return;
         }
 
@@ -116,42 +113,6 @@ public class AddressBook {
         contacts.add(new Contact(firstName, lastName, address, city, state, zip, phoneNumber, email));
         System.out.println("Contact added successfully.");
     }
-
-    private static void searchByLocation() {
-        System.out.print("Enter City or State to search: ");
-        String location = scanner.nextLine();
-        System.out.println("Search Results:");
-
-        addressBooks.forEach((bookName, contacts) -> {
-            contacts.stream()
-                    .filter(contact -> contact.getCity().equalsIgnoreCase(location) || contact.getState().equalsIgnoreCase(location))
-                    .forEach(contact -> System.out.println(contact));
-        });
-    }
-    private static void viewByLocation() {
-        HashMap<String, ArrayList<Contact>> cityMap = new HashMap<>();
-        HashMap<String, ArrayList<Contact>> stateMap = new HashMap<>();
-
-        addressBooks.values().forEach(contacts -> {
-            contacts.forEach(contact -> {
-                cityMap.computeIfAbsent(contact.getCity(), k -> new ArrayList<>()).add(contact);
-                stateMap.computeIfAbsent(contact.getState(), k -> new ArrayList<>()).add(contact);
-            });
-        });
-
-        System.out.println("Persons by City:");
-        cityMap.forEach((city, persons) -> {
-            System.out.println(city + ": " + persons);
-        });
-
-        System.out.println("\nPersons by State:");
-        stateMap.forEach((state, persons) -> {
-            System.out.println(state + ": " + persons);
-        });
-    }
-
-
-
 
     private static void displayContacts(ArrayList<Contact> contacts) {
         System.out.println("Contacts in the Address Book:");

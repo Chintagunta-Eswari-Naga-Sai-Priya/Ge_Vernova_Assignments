@@ -1,9 +1,9 @@
-// AddressBookMain.java
 package Day13.AddressBook;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class AddressBook {
     private static HashMap<String, ArrayList<Contact>> addressBooks = new HashMap<>();
@@ -19,12 +19,11 @@ public class AddressBook {
             System.out.println("3. View All Address Books");
             System.out.println("4. Search by City or State");
             System.out.println("5. Count Persons by City or State");
-// Modify switch cases accordingly.
             System.out.println("6. Sort Entries Alphabetically");
             System.out.println("7. Sort Entries by City, State, or ZIP");
             System.out.println("8. Write to File");
             System.out.println("9. Read from File");
-            System.out.println("10 Exit");
+            System.out.println("10. Exit");
             System.out.print("Choose an option: ");
             int choice = scanner.nextInt();
             scanner.nextLine(); // Consume newline
@@ -47,7 +46,7 @@ public class AddressBook {
                     String fileName = scanner.nextLine();
                     readFromFile(fileName);
                 }
-                case 10-> exit = true;
+                case 10 -> exit = true;
                 default -> System.out.println("Invalid option! Please try again.");
             }
         }
@@ -111,7 +110,7 @@ public class AddressBook {
 
         // Check for duplicates
         boolean duplicate = contacts.stream().anyMatch(contact ->
-                contact.getFirstName().equals(firstName) && contact.getLastName().equals(lastName)
+                contact.getFirstName().equalsIgnoreCase(firstName) && contact.getLastName().equalsIgnoreCase(lastName)
         );
         if (duplicate) {
             System.out.println("Duplicate contact found. Contact not added.");
@@ -124,7 +123,7 @@ public class AddressBook {
         String city = scanner.nextLine();
         System.out.print("State: ");
         String state = scanner.nextLine();
-        System.out.print("Zip: ");
+        System.out.print("ZIP: ");
         String zip = scanner.nextLine();
         System.out.print("Phone Number: ");
         String phoneNumber = scanner.nextLine();
@@ -134,6 +133,14 @@ public class AddressBook {
         contacts.add(new Contact(firstName, lastName, address, city, state, zip, phoneNumber, email));
         System.out.println("Contact added successfully.");
     }
+
+    private static void displayContacts(ArrayList<Contact> contacts) {
+        System.out.println("Contacts in the Address Book:");
+        for (Contact contact : contacts) {
+            System.out.println(contact);
+        }
+    }
+
     private static void searchByLocation() {
         System.out.print("Enter City or State to search: ");
         String location = scanner.nextLine();
@@ -145,27 +152,7 @@ public class AddressBook {
                     .forEach(contact -> System.out.println(contact));
         });
     }
-    private static void viewByLocation() {
-        HashMap<String, ArrayList<Contact>> cityMap = new HashMap<>();
-        HashMap<String, ArrayList<Contact>> stateMap = new HashMap<>();
 
-        addressBooks.values().forEach(contacts -> {
-            contacts.forEach(contact -> {
-                cityMap.computeIfAbsent(contact.getCity(), k -> new ArrayList<>()).add(contact);
-                stateMap.computeIfAbsent(contact.getState(), k -> new ArrayList<>()).add(contact);
-            });
-        });
-
-        System.out.println("Persons by City:");
-        cityMap.forEach((city, persons) -> {
-            System.out.println(city + ": " + persons);
-        });
-
-        System.out.println("\nPersons by State:");
-        stateMap.forEach((state, persons) -> {
-            System.out.println(state + ": " + persons);
-        });
-    }
     private static void countPersonsByCityOrState() {
         System.out.println("Count by: 1. City 2. State");
         int choice = scanner.nextInt();
@@ -185,6 +172,7 @@ public class AddressBook {
             System.out.println("Invalid choice.");
         }
     }
+
     private static void sortEntriesAlphabetically() {
         addressBooks.forEach((bookName, contacts) -> {
             System.out.println("\nAddress Book: " + bookName);
@@ -194,6 +182,7 @@ public class AddressBook {
                     .forEach(System.out::println);
         });
     }
+
     private static void sortEntriesByLocation() {
         System.out.println("Sort by: 1. City 2. State 3. ZIP");
         int choice = scanner.nextInt();
@@ -217,6 +206,7 @@ public class AddressBook {
             sortedStream.forEach(System.out::println);
         });
     }
+
     private static void writeToFile(String fileName) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
             addressBooks.forEach((bookName, contacts) -> {
@@ -244,17 +234,6 @@ public class AddressBook {
             }
         } catch (IOException e) {
             System.err.println("Error reading from file: " + e.getMessage());
-        }
-    }
-
-
-
-
-
-    private static void displayContacts(ArrayList<Contact> contacts) {
-        System.out.println("Contacts in the Address Book:");
-        for (Contact contact : contacts) {
-            System.out.println(contact);
         }
     }
 }

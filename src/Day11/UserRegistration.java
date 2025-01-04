@@ -36,6 +36,11 @@ public class UserRegistration {
         String regex = "^(?=.*[0-9]).{8,}$"; // At least 1 numeric and 8 characters
         return Pattern.matches(regex, password);
     }
+    public boolean validatePasswordRule4(String password) {
+        String regex = "^(?=.*[!@#$%^&*(),.?\":{}|<>]).{8,}$"; // At least 1 special character and 8 characters
+        return Pattern.matches(regex, password);
+    }
+
 
 
 

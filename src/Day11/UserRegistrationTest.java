@@ -81,6 +81,18 @@ public class UserRegistrationTest {
             UserRegistration userRegistration = new UserRegistration();
             Assert.assertFalse(userRegistration.validatePasswordRule3("Password"));
         }
+        @Test
+        public void testPasswordRule4_Valid() {
+            UserRegistration userRegistration = new UserRegistration();
+            Assert.assertTrue(userRegistration.validatePasswordRule4("Password@1"));
+        }
+
+        @Test
+        public void testPasswordRule4_Invalid() {
+            UserRegistration userRegistration = new UserRegistration();
+            Assert.assertFalse(userRegistration.validatePasswordRule4("Password1"));
+        }
+
 
 
 

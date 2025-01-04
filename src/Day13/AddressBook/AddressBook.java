@@ -127,6 +127,28 @@ public class AddressBook {
                     .forEach(contact -> System.out.println(contact));
         });
     }
+    private static void viewByLocation() {
+        HashMap<String, ArrayList<Contact>> cityMap = new HashMap<>();
+        HashMap<String, ArrayList<Contact>> stateMap = new HashMap<>();
+
+        addressBooks.values().forEach(contacts -> {
+            contacts.forEach(contact -> {
+                cityMap.computeIfAbsent(contact.getCity(), k -> new ArrayList<>()).add(contact);
+                stateMap.computeIfAbsent(contact.getState(), k -> new ArrayList<>()).add(contact);
+            });
+        });
+
+        System.out.println("Persons by City:");
+        cityMap.forEach((city, persons) -> {
+            System.out.println(city + ": " + persons);
+        });
+
+        System.out.println("\nPersons by State:");
+        stateMap.forEach((state, persons) -> {
+            System.out.println(state + ": " + persons);
+        });
+    }
+
 
 
     private static void displayContacts(ArrayList<Contact> contacts) {

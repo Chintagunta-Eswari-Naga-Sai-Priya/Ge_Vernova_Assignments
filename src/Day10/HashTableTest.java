@@ -1,11 +1,10 @@
 package Day10;
-
 public class HashTableTest {
     public static void main(String[] args) {
-        String sentence = "To be or not to be";
-        String[] words = sentence.split(" ");
+        String paragraph = "Paranoids are not paranoid because they are paranoid but because they keep putting themselves deliberately into paranoid avoidable situations";
+        String[] words = paragraph.split(" ");
 
-        HashTable<String, Integer> hashTable = new HashTable<>();
+        HashTable<String, Integer> hashTable = new HashTable<>(10);
         for (String word : words) {
             Integer count = hashTable.get(word);
             if (count == null) {

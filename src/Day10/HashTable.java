@@ -1,20 +1,39 @@
 package Day10;
 
 import Day9.LinkedList;
-public class HashTable<K, V> {
-    private LinkedList<MyMapNode<K, V>> bucketArray;
 
-    public HashTable() {
-        bucketArray = new LinkedList<>();
+public class HashTable<K, V> {
+    private ArrayList<LinkedList<MyMapNode<K, V>>> bucketArray;
+    private int numBuckets;
+
+    public HashTable(int size) {
+        bucketArray = new ArrayList<>(size);
+        numBuckets = size;
+        for (int i = 0; i < size; i++) {
+            bucketArray.add(new LinkedList<>());
+        }
+    }
+
+    private int getBucketIndex(K key) {
+        return Math.abs(key.hashCode()) % numBuckets;
     }
 
     public void add(K key, V value) {
-        MyMapNode<K, V> newNode = new MyMapNode<>(key, value);
-        bucketArray.add(newNode);
+        int index = getBucketIndex(key);
+        LinkedList<MyMapNode<K, V>> bucket = bucketArray.get(index);
+        for (MyMapNode<K, V> node : bucket) {
+            if (node.key.equals(key)) {
+                node.value = value;
+                return;
+            }
+        }
+        bucket.add(new MyMapNode<>(key, value));
     }
 
     public V get(K key) {
-        for (MyMapNode<K, V> node : bucketArray) {
+        int index = getBucketIndex(key);
+        LinkedList<MyMapNode<K, V>> bucket = bucketArray.get(index);
+        for (MyMapNode<K, V> node : bucket) {
             if (node.key.equals(key)) {
                 return node.value;
             }
@@ -23,8 +42,12 @@ public class HashTable<K, V> {
     }
 
     public void display() {
-        for (MyMapNode<K, V> node : bucketArray) {
-            System.out.println(node.key + ": " + node.value);
+        for (int i = 0; i < numBuckets; i++) {
+            LinkedList<MyMapNode<K, V>> bucket = bucketArray.get(i);
+            for (MyMapNode<K, V> node : bucket) {
+                System.out.println(node.key + ": " + node.value);
+            }
         }
     }
 }
+

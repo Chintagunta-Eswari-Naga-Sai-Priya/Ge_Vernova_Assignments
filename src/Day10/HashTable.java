@@ -49,5 +49,11 @@ public class HashTable<K, V> {
             }
         }
     }
+    public void remove(K key) {
+        int index = getBucketIndex(key);
+        LinkedList<MyMapNode<K, V>> bucket = bucketArray.get(index);
+        bucket.removeIf(node -> node.key.equals(key));
+    }
+
 }
 

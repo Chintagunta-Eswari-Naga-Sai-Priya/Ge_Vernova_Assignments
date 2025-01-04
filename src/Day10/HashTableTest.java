@@ -13,6 +13,10 @@ public class HashTableTest {
                 hashTable.add(word, count + 1);
             }
         }
-        hashTable.display(); // Output: Word frequencies
+        hashTable.display();
+
+        System.out.println("Removing 'avoidable':");
+        hashTable.remove("avoidable");
+        hashTable.display(); // "avoidable" should be removed
     }
 }

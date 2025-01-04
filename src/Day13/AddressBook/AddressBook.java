@@ -20,9 +20,9 @@ public class AddressBook {
             System.out.println("4. Search by City or State");
             System.out.println("5. Count Persons by City or State");
 // Modify switch cases accordingly.
-            System.out.println("\n6. Sort Entries Alphabetically");
-
-            System.out.println(" 7Exit");
+            System.out.println("6. Sort Entries Alphabetically");
+            System.out.println("7. Sort Entries by City, State, or ZIP");
+            System.out.println("8 Exit");
             System.out.print("Choose an option: ");
             int choice = scanner.nextInt();
             scanner.nextLine(); // Consume newline
@@ -34,7 +34,8 @@ public class AddressBook {
                 case 4 -> searchByLocation();
                 case 5 -> countPersonsByCityOrState();
                 case 6 -> sortEntriesAlphabetically();
-                case 7-> exit = true;
+                case 7 -> sortEntriesByLocation();
+                case 8-> exit = true;
                 default -> System.out.println("Invalid option! Please try again.");
             }
         }
@@ -181,7 +182,29 @@ public class AddressBook {
                     .forEach(System.out::println);
         });
     }
+    private static void sortEntriesByLocation() {
+        System.out.println("Sort by: 1. City 2. State 3. ZIP");
+        int choice = scanner.nextInt();
+        scanner.nextLine(); // Consume newline
 
+        addressBooks.forEach((bookName, contacts) -> {
+            System.out.println("\nAddress Book: " + bookName);
+            Stream<Contact> sortedStream;
+
+            if (choice == 1) {
+                sortedStream = contacts.stream().sorted(Comparator.comparing(Contact::getCity));
+            } else if (choice == 2) {
+                sortedStream = contacts.stream().sorted(Comparator.comparing(Contact::getState));
+            } else if (choice == 3) {
+                sortedStream = contacts.stream().sorted(Comparator.comparing(Contact::getZip));
+            } else {
+                System.out.println("Invalid choice.");
+                return;
+            }
+
+            sortedStream.forEach(System.out::println);
+        });
+    }
 
 
 

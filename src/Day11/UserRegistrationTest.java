@@ -14,4 +14,16 @@ public class UserRegistrationTest {
         UserRegistration userRegistration = new UserRegistration();
         Assert.assertFalse(userRegistration.validateFirstName("john"));
     }
+    @Test
+    public void testLastName_Valid() {
+        UserRegistration userRegistration = new UserRegistration();
+        Assert.assertTrue(userRegistration.validateLastName("Doe"));
+    }
+
+    @Test
+    public void testLastName_Invalid() {
+        UserRegistration userRegistration = new UserRegistration();
+        Assert.assertFalse(userRegistration.validateLastName("doe"));
+    }
+
 }

@@ -18,9 +18,10 @@ public class AddressBook {
             System.out.println("2. Select Address Book");
             System.out.println("3. View All Address Books");
             System.out.println("4. Search by City or State");
+            System.out.println("5. Count Persons by City or State");
 // Modify switch cases accordingly.
 
-            System.out.println("5 Exit");
+            System.out.println("6 Exit");
             System.out.print("Choose an option: ");
             int choice = scanner.nextInt();
             scanner.nextLine(); // Consume newline
@@ -29,7 +30,9 @@ public class AddressBook {
                 case 1 -> createAddressBook();
                 case 2 -> selectAddressBook();
                 case 3 -> viewAllAddressBooks();
-                case 4 -> exit = true;
+                case 4 -> searchByLocation();
+                case 5 -> countPersonsByCityOrState();
+                case 6 -> exit = true;
                 default -> System.out.println("Invalid option! Please try again.");
             }
         }
@@ -148,6 +151,28 @@ public class AddressBook {
             System.out.println(state + ": " + persons);
         });
     }
+    private static void countPersonsByCityOrState() {
+        System.out.println("Count by: 1. City 2. State");
+        int choice = scanner.nextInt();
+        scanner.nextLine(); // Consume newline
+
+        if (choice == 1) {
+            addressBooks.values().stream()
+                    .flatMap(ArrayList::stream)
+                    .collect(Collectors.groupingBy(Contact::getCity, Collectors.counting()))
+                    .forEach((city, count) -> System.out.println("City: " + city + ", Count: " + count));
+        } else if (choice == 2) {
+            addressBooks.values().stream()
+                    .flatMap(ArrayList::stream)
+                    .collect(Collectors.groupingBy(Contact::getState, Collectors.counting()))
+                    .forEach((state, count) -> System.out.println("State: " + state + ", Count: " + count));
+        } else {
+            System.out.println("Invalid choice.");
+        }
+    }
+
+
+
 
 
 

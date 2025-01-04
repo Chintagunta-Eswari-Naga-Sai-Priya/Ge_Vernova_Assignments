@@ -68,6 +68,9 @@ public class AddressBook {
             System.out.println("\n1. Add Contact");
             System.out.println("2. View Contacts");
             System.out.println("3. Exit to Main Menu");
+            System.out.println("4. Search by City or State");
+// Modify switch cases accordingly.
+
             System.out.print("Choose an option: ");
             int choice = scanner.nextInt();
             scanner.nextLine(); // Consume newline
@@ -113,6 +116,18 @@ public class AddressBook {
         contacts.add(new Contact(firstName, lastName, address, city, state, zip, phoneNumber, email));
         System.out.println("Contact added successfully.");
     }
+    private static void searchByLocation() {
+        System.out.print("Enter City or State to search: ");
+        String location = scanner.nextLine();
+        System.out.println("Search Results:");
+
+        addressBooks.forEach((bookName, contacts) -> {
+            contacts.stream()
+                    .filter(contact -> contact.getCity().equalsIgnoreCase(location) || contact.getState().equalsIgnoreCase(location))
+                    .forEach(contact -> System.out.println(contact));
+        });
+    }
+
 
     private static void displayContacts(ArrayList<Contact> contacts) {
         System.out.println("Contacts in the Address Book:");

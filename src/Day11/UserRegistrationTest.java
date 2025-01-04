@@ -93,6 +93,25 @@ public class UserRegistrationTest {
             Assert.assertFalse(userRegistration.validatePasswordRule4("Password1"));
         }
 
+        @Test
+        public void testEmailSamples_Valid() {
+            UserRegistration userRegistration = new UserRegistration();
+            String[] validEmails = {"abc.xyz@bl.co.in", "abc@bl.co", "abc123@bl.in"};
+            for (String email : validEmails) {
+                Assert.assertTrue(userRegistration.validateEmailSamples(email));
+            }
+        }
+
+        @Test
+        public void testEmailSamples_Invalid() {
+            UserRegistration userRegistration = new UserRegistration();
+            String[] invalidEmails = {"abc@.co.in", "abc@com", "abc@.com.com"};
+            for (String email : invalidEmails) {
+                Assert.assertFalse(userRegistration.validateEmailSamples(email));
+            }
+        }
+
+
 
 
 

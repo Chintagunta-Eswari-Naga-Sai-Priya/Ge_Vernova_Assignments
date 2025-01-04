@@ -40,6 +40,11 @@ public class UserRegistration {
         String regex = "^(?=.*[!@#$%^&*(),.?\":{}|<>]).{8,}$"; // At least 1 special character and 8 characters
         return Pattern.matches(regex, password);
     }
+    public boolean validateEmailSamples(String email) {
+        String regex = "^[a-zA-Z0-9]+([._+-][a-zA-Z0-9]+)*@[a-zA-Z0-9-]+\\.[a-zA-Z]{2,}([.][a-zA-Z]{2,})?$";
+        return Pattern.matches(regex, email);
+    }
+
 
 
 

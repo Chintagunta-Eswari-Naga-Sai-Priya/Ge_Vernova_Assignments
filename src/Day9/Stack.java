@@ -3,14 +3,27 @@ package Day9;
 public class Stack<T> {
     private LinkedList<T> linkedList = new LinkedList<>();
 
-    // Push element onto the stack
     public void push(T data) {
         linkedList.addFirst(data);
     }
 
-    // Display stack elements
+    public T pop() {
+        if (linkedList.isEmpty()) {
+            return null;
+        }
+        return linkedList.removeFirst();
+    }
+
+    public T peak() {
+        if (linkedList.isEmpty()) {
+            return null;
+        }
+        return linkedList.getHead();
+    }
+
     public void display() {
         linkedList.display();
     }
 }
+
 

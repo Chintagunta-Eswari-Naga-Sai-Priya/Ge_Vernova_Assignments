@@ -6,6 +6,10 @@ public class StackTest {
         stack.push(70);
         stack.push(30);
         stack.push(56);
-        stack.display(); // Output: 56 -> 30 -> 70 -> null
+        stack.display();
+
+        System.out.println("Top element: " + stack.peak());
+        System.out.println("Popped element: " + stack.pop());
+        stack.display();
     }
 }

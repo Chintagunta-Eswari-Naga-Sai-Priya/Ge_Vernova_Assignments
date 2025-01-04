@@ -22,7 +22,9 @@ public class AddressBook {
 // Modify switch cases accordingly.
             System.out.println("6. Sort Entries Alphabetically");
             System.out.println("7. Sort Entries by City, State, or ZIP");
-            System.out.println("8 Exit");
+            System.out.println("8. Write to File");
+            System.out.println("9. Read from File");
+            System.out.println("10 Exit");
             System.out.print("Choose an option: ");
             int choice = scanner.nextInt();
             scanner.nextLine(); // Consume newline
@@ -35,7 +37,17 @@ public class AddressBook {
                 case 5 -> countPersonsByCityOrState();
                 case 6 -> sortEntriesAlphabetically();
                 case 7 -> sortEntriesByLocation();
-                case 8-> exit = true;
+                case 8 -> {
+                    System.out.print("Enter file name to write data: ");
+                    String fileName = scanner.nextLine();
+                    writeToFile(fileName);
+                }
+                case 9 -> {
+                    System.out.print("Enter file name to read data: ");
+                    String fileName = scanner.nextLine();
+                    readFromFile(fileName);
+                }
+                case 10-> exit = true;
                 default -> System.out.println("Invalid option! Please try again.");
             }
         }
@@ -204,6 +216,35 @@ public class AddressBook {
 
             sortedStream.forEach(System.out::println);
         });
+    }
+    private static void writeToFile(String fileName) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
+            addressBooks.forEach((bookName, contacts) -> {
+                try {
+                    writer.write("Address Book: " + bookName + "\n");
+                    for (Contact contact : contacts) {
+                        writer.write(contact + "\n");
+                    }
+                    writer.write("\n");
+                } catch (IOException e) {
+                    System.err.println("Error writing to file: " + e.getMessage());
+                }
+            });
+            System.out.println("Data written to file successfully.");
+        } catch (IOException e) {
+            System.err.println("Error opening file: " + e.getMessage());
+        }
+    }
+
+    private static void readFromFile(String fileName) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+        } catch (IOException e) {
+            System.err.println("Error reading from file: " + e.getMessage());
+        }
     }
 
 

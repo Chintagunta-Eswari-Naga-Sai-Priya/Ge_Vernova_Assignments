@@ -92,11 +92,11 @@ public class AddressBook {
         String lastName = scanner.nextLine();
 
         // Check for duplicates
-        boolean duplicate = contacts.stream().anyMatch(contact ->
-                contact.getFirstName().equals(firstName) && contact.getLastName().equals(lastName)
-        );
-        if (duplicate) {
-            System.out.println("Duplicate contact found. Contact not added.");
+        boolean isDuplicate = contacts.stream()
+                .anyMatch(contact -> contact.getFirstName().equalsIgnoreCase(firstName) &&
+                        contact.getLastName().equalsIgnoreCase(lastName));
+        if (isDuplicate) {
+            System.out.println("Contact already exists!");
             return;
         }
 
@@ -116,6 +116,7 @@ public class AddressBook {
         contacts.add(new Contact(firstName, lastName, address, city, state, zip, phoneNumber, email));
         System.out.println("Contact added successfully.");
     }
+
     private static void searchByLocation() {
         System.out.print("Enter City or State to search: ");
         String location = scanner.nextLine();
@@ -148,6 +149,7 @@ public class AddressBook {
             System.out.println(state + ": " + persons);
         });
     }
+
 
 
 

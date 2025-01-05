@@ -24,6 +24,15 @@ public class User {
     private boolean isValidLastName(String lastName) {
         return lastName != null && lastName.length() >= 3 && Character.isUpperCase(lastName.charAt(0));
     }
+    if (!isValidEmail(email)) {
+        throw new IllegalArgumentException("Invalid Email");
+    }
+
+    private boolean isValidEmail(String email) {
+        String emailRegex = "^[a-zA-Z0-9]+(\\.[a-zA-Z0-9]+)?@[a-zA-Z0-9]+\\.[a-zA-Z]{2,3}(\\.[a-zA-Z]{2})?$";
+        return email != null && email.matches(emailRegex);
+    }
+
 
 
 

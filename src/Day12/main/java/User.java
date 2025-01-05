@@ -17,6 +17,14 @@ public class User {
     private boolean isValidFirstName(String firstName) {
         return firstName != null && firstName.length() >= 3 && Character.isUpperCase(firstName.charAt(0));
     }
+    if (!isValidLastName(lastName)) {
+        throw new IllegalArgumentException("Invalid Last Name");
+    }
+
+    private boolean isValidLastName(String lastName) {
+        return lastName != null && lastName.length() >= 3 && Character.isUpperCase(lastName.charAt(0));
+    }
+
 
 
     // Constructor and validations to be added later

@@ -32,6 +32,15 @@ public class User {
         String emailRegex = "^[a-zA-Z0-9]+(\\.[a-zA-Z0-9]+)?@[a-zA-Z0-9]+\\.[a-zA-Z]{2,3}(\\.[a-zA-Z]{2})?$";
         return email != null && email.matches(emailRegex);
     }
+    if (!isValidMobile(mobile)) {
+        throw new IllegalArgumentException("Invalid Mobile Number");
+    }
+
+    private boolean isValidMobile(String mobile) {
+        String mobileRegex = "^\\d{2} \\d{10}$";
+        return mobile != null && mobile.matches(mobileRegex);
+    }
+
 
 
 

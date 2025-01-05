@@ -1,13 +1,11 @@
-// AddressBookMain.java
-package Day6.AddressBook;
-
+package Day6.Address_Book;
 import java.util.ArrayList;
-import java.util.Scanner;
 import java.util.HashMap;
+import java.util.Scanner;
 
 public class AddressBook {
-    private static HashMap<String, ArrayList<Contact>> addressBooks = new HashMap<>();
-    private static Scanner scanner = new Scanner(System.in);
+    final private static HashMap<String, ArrayList<Contact>> addressBooks = new HashMap<>();
+    final private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
         System.out.println("Welcome to Address Book Program");
@@ -19,15 +17,17 @@ public class AddressBook {
             System.out.println("3. View All Address Books");
             System.out.println("4. Exit");
             System.out.print("Choose an option: ");
-            int choice = scanner.nextInt();
-            scanner.nextLine(); // Consume newline
-
-            switch (choice) {
-                case 1 -> createAddressBook();
-                case 2 -> selectAddressBook();
-                case 3 -> viewAllAddressBooks();
-                case 4 -> exit = true;
-                default -> System.out.println("Invalid option! Please try again.");
+            try {
+                int choice = Integer.parseInt(scanner.nextLine());
+                switch (choice) {
+                    case 1 -> createAddressBook();
+                    case 2 -> selectAddressBook();
+                    case 3 -> viewAllAddressBooks();
+                    case 4 -> exit = true;
+                    default -> System.out.println("Invalid option! Please try again.");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input! Please enter a number.");
             }
         }
         scanner.close();
@@ -56,8 +56,12 @@ public class AddressBook {
 
     private static void viewAllAddressBooks() {
         System.out.println("Existing Address Books:");
-        for (String name : addressBooks.keySet()) {
-            System.out.println(name);
+        if (addressBooks.isEmpty()) {
+            System.out.println("No address books available.");
+        } else {
+            for (String name : addressBooks.keySet()) {
+                System.out.println(name);
+            }
         }
     }
 
@@ -69,14 +73,16 @@ public class AddressBook {
             System.out.println("2. View Contacts");
             System.out.println("3. Exit to Main Menu");
             System.out.print("Choose an option: ");
-            int choice = scanner.nextInt();
-            scanner.nextLine(); // Consume newline
-
-            switch (choice) {
-                case 1 -> addContactToBook(contacts);
-                case 2 -> displayContacts(contacts);
-                case 3 -> exit = true;
-                default -> System.out.println("Invalid option! Please try again.");
+            try {
+                int choice = Integer.parseInt(scanner.nextLine());
+                switch (choice) {
+                    case 1 -> addContactToBook(contacts);
+                    case 2 -> displayContacts(contacts);
+                    case 3 -> exit = true;
+                    default -> System.out.println("Invalid option! Please try again.");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input! Please enter a number.");
             }
         }
     }
@@ -106,8 +112,12 @@ public class AddressBook {
 
     private static void displayContacts(ArrayList<Contact> contacts) {
         System.out.println("Contacts in the Address Book:");
-        for (Contact contact : contacts) {
-            System.out.println(contact);
+        if (contacts.isEmpty()) {
+            System.out.println("No contacts available.");
+        } else {
+            for (Contact contact : contacts) {
+                System.out.println(contact);
+            }
         }
     }
 }

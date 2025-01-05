@@ -40,6 +40,17 @@ public class User {
         String mobileRegex = "^\\d{2} \\d{10}$";
         return mobile != null && mobile.matches(mobileRegex);
     }
+    if (!isValidPassword(password)) {
+        throw new IllegalArgumentException("Invalid Password");
+    }
+
+    private boolean isValidPassword(String password) {
+        return password != null && password.length() >= 8 &&
+                password.chars().anyMatch(Character::isUpperCase) &&
+                password.chars().anyMatch(Character::isDigit) &&
+                password.chars().filter(ch -> "!@#$%^&*()-+_[]{}|;:'\",.<>?/`~".indexOf(ch) >= 0).count() == 1;
+    }
+
 
 
 
